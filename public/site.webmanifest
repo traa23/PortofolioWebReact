@@ -1,0 +1,16 @@
+{
+    "name": "Putra — Portfolio",
+    "short_name": "Putra",
+    "description": "Portfolio of Putra — Frontend & Full Stack Developer.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#050816",
+    "theme_color": "#050816",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}

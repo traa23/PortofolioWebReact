@@ -1,0 +1,332 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@fontsource-variable/inter';
+
+/* ------------------------------------------------------------------ */
+/*  Dark mode variant (class-based, controlled by ThemeProvider)       */
+/* ------------------------------------------------------------------ */
+@custom-variant dark (&:is(.dark *));
+
+/* ================================================================== */
+/*  DESIGN TOKENS — single source of truth                             */
+/*  Never hardcode colors / magic numbers inside components.           */
+/* ================================================================== */
+
+:root {
+    /* --- Semantic colors (LIGHT theme) --- */
+    --background: #f8fafc;
+    --foreground: #050816;
+
+    --card: #ffffff;
+    --card-foreground: #050816;
+
+    --popover: #ffffff;
+    --popover-foreground: #050816;
+
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+
+    --secondary: #8b5cf6;
+    --secondary-foreground: #ffffff;
+
+    --accent: #06b6d4;
+    --accent-foreground: #ffffff;
+
+    --success: #10b981;
+    --success-foreground: #ffffff;
+
+    --muted: #f1f5f9;
+    --muted-foreground: #475569;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #3b82f6;
+
+    /* --- Brand colors (theme-independent, fixed identity) --- */
+    --brand-bg: #050816;
+    --brand-primary: #3b82f6;
+    --brand-secondary: #8b5cf6;
+    --brand-accent: #06b6d4;
+    --brand-success: #10b981;
+
+    /* --- Radius scale --- */
+    --radius: 0.75rem;
+
+    /* --- Glow effects --- */
+    --glow-primary: 0 0 40px -8px rgba(59, 130, 246, 0.55);
+    --glow-secondary: 0 0 40px -8px rgba(139, 92, 246, 0.55);
+    --glow-accent: 0 0 40px -8px rgba(6, 182, 212, 0.55);
+    --glow-soft: 0 0 80px -20px rgba(59, 130, 246, 0.35);
+
+    /* --- Blur scale --- */
+    --blur-glass: 16px;
+    --blur-heavy: 40px;
+
+    /* --- Motion: durations & easings --- */
+    --duration-fast: 150ms;
+    --duration-base: 300ms;
+    --duration-slow: 600ms;
+    --duration-slower: 1000ms;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+    /* --- Layout --- */
+    --container-max: 1280px;
+
+    /* --- Z-index scale --- */
+    --z-base: 0;
+    --z-content: 10;
+    --z-canvas: 1;
+    --z-sticky: 40;
+    --z-navbar: 50;
+    --z-overlay: 60;
+    --z-modal: 70;
+    --z-toast: 80;
+    --z-cursor: 9999;
+}
+
+/* --- Semantic colors (DARK theme — the brand default) --- */
+.dark {
+    --background: #050816;
+    --foreground: #f8fafc;
+
+    --card: #0a1024;
+    --card-foreground: #f8fafc;
+
+    --popover: #0a1024;
+    --popover-foreground: #f8fafc;
+
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+
+    --secondary: #8b5cf6;
+    --secondary-foreground: #ffffff;
+
+    --accent: #06b6d4;
+    --accent-foreground: #050816;
+
+    --success: #10b981;
+    --success-foreground: #050816;
+
+    --muted: #131a33;
+    --muted-foreground: #94a3b8;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    --border: #1d2742;
+    --input: #1d2742;
+    --ring: #3b82f6;
+}
+
+/* ================================================================== */
+/*  TAILWIND THEME MAPPING                                             */
+/*  Exposes tokens as utilities: bg-background, text-primary, etc.     */
+/* ================================================================== */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Fonts */
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', Menlo, monospace;
+
+    /* Radius scale derived from --radius */
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+
+    /* Glow shadows as utilities: shadow-glow-primary, etc. */
+    --shadow-glow-primary: var(--glow-primary);
+    --shadow-glow-secondary: var(--glow-secondary);
+    --shadow-glow-accent: var(--glow-accent);
+    --shadow-glow-soft: var(--glow-soft);
+
+    /* Motion durations as utilities */
+    --animate-duration-fast: var(--duration-fast);
+    --animate-duration-base: var(--duration-base);
+    --animate-duration-slow: var(--duration-slow);
+}
+
+/* ================================================================== */
+/*  BASE LAYER                                                         */
+/* ================================================================== */
+@layer base {
+    * {
+        border-color: var(--color-border);
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-family: var(--font-sans);
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    /* Accessible focus ring */
+    :focus-visible {
+        outline: 2px solid var(--color-ring);
+        outline-offset: 2px;
+    }
+
+    ::selection {
+        background-color: color-mix(in srgb, var(--brand-primary) 35%, transparent);
+        color: var(--color-foreground);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: color-mix(in srgb, var(--color-muted-foreground) 40%, transparent);
+        border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary);
+    }
+}
+
+/* ================================================================== */
+/*  ACCESSIBILITY — reduced motion                                     */
+/* ================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* When Lenis smooth scroll is active, disable native smooth scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* ================================================================== */
+/*  CURSOR SYSTEM                                                      */
+/* ================================================================== */
+@media (pointer: fine) {
+
+    html.custom-cursor-active,
+    html.custom-cursor-active * {
+        cursor: none !important;
+    }
+}
+
+/* ================================================================== */
+/*  HERO BACKGROUND LAYERS                                            */
+/* ================================================================== */
+@layer utilities {
+
+    /* Layer 5 — subtle film grain so gradients never look flat/banded. */
+    .bg-noise {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+}
+
+/* Layer 3 — slow aurora drift (paused under reduced-motion globally). */
+@keyframes aurora-a {
+
+    0%,
+    100% {
+        transform: translate3d(-8%, -6%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(10%, 8%, 0) scale(1.15);
+    }
+}
+
+@keyframes aurora-b {
+
+    0%,
+    100% {
+        transform: translate3d(8%, 6%, 0) scale(1.1);
+    }
+
+    50% {
+        transform: translate3d(-10%, -4%, 0) scale(0.95);
+    }
+}
+
+@keyframes aurora-c {
+
+    0%,
+    100% {
+        transform: translate3d(0, 4%, 0) scale(1);
+    }
+
+    50% {
+        transform: translate3d(6%, -8%, 0) scale(1.2);
+    }
+}
+
+.animate-aurora-a {
+    animation: aurora-a 22s ease-in-out infinite;
+}
+
+.animate-aurora-b {
+    animation: aurora-b 26s ease-in-out infinite;
+}
+
+.animate-aurora-c {
+    animation: aurora-c 30s ease-in-out infinite;
+}
