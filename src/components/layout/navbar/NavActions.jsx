@@ -21,7 +21,13 @@ export function NavActions({ className, onAction }) {
             <ThemeToggle />
 
             <Button asChild variant="outline" size="sm">
-                <a href={RESUME_URL} download data-cursor="hover">
+                <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open my CV"
+                    data-cursor="hover"
+                >
                     <Download className="size-4" />
                     Resume
                 </a>

@@ -1,18 +1,16 @@
 /**
- * About section content. Fill these in — structure only, no defaults.
- * UI labels (e.g. "Education", "Currently") live in the components;
- * only personal values belong here.
+ * About section content.
  *
  * @typedef {Object} About
- * @property {string}   headline      Short H2 headline (your narrative hook).
- * @property {string[]} paragraphs    1–2 short narrative paragraphs.
- * @property {string}   philosophy    1–2 sentence working principle.
+ * @property {string}   headline
+ * @property {string[]} paragraphs
+ * @property {string}   philosophy
  * @property {Object}   facts
  * @property {string}   facts.education
  * @property {string}   facts.basedIn
  * @property {string}   facts.specialization
  * @property {string}   facts.currentGoal
- * @property {string[]} interests     Max 4 (extra are ignored).
+ * @property {string[]} interests
  * @property {Object}   currently
  * @property {string}   currently.building
  * @property {string}   currently.learning
@@ -21,19 +19,24 @@
 
 /** @type {About} */
 export const about = {
-    headline: '',
-    paragraphs: [],
-    philosophy: '',
+    headline: 'Mengubah ide menjadi produk web yang nyaman digunakan.',
+    paragraphs: [
+        'Mahasiswa Sistem Informasi yang memiliki minat besar pada Frontend Development, UI/UX Design, dan Artificial Intelligence, serta berpengalaman mengembangkan berbagai proyek di bidang pengembangan perangkat lunak, jaringan komputer, dan teknologi cloud. Terbiasa membangun aplikasi web modern yang cepat, responsif, dan mudah digunakan menggunakan React, Tailwind CSS, serta berbagai teknologi pendukung lainnya.',
+        'Selain pengembangan web, saya memiliki pengalaman mengerjakan proyek menggunakan Docker, Firebase, CodeIgniter (CI), Google Colab untuk implementasi machine learning, Android Studio untuk pengembangan aplikasi mobile, serta proyek Jaringan Komputer. Saya juga memiliki kemampuan desain dan pemodelan 3D menggunakan AutoCAD dan SketchUp, serta pembuatan animasi video untuk kebutuhan presentasi maupun media digital.',
+        'Selalu antusias mempelajari teknologi baru, mengembangkan solusi yang efisien, serta berkolaborasi dalam tim untuk menghasilkan produk digital yang berkualitas, inovatif, dan berorientasi pada pengalaman pengguna.',
+    ],
+    philosophy:
+        'Clean code, desain responsif, dan pengalaman pengguna yang nyaman di setiap proyek.',
     facts: {
-        education: '',
-        basedIn: '',
-        specialization: '',
-        currentGoal: '',
+        education: 'Information Systems · Politeknik Caltex Riau',
+        basedIn: 'Rumbai, Pekanbaru, Indonesia',
+        specialization: 'Frontend, Full Stack & AI',
+        currentGoal: 'Tumbuh sebagai Full Stack & Software Engineer',
     },
-    interests: [],
+    interests: ['Web Development', 'UI/UX Design', 'Artificial Intelligence'],
     currently: {
-        building: '',
-        learning: '',
-        exploring: '',
+        building: 'Aplikasi web modern dengan React',
+        learning: 'Machine Learning — Computer Vision (CNN)',
+        exploring: 'Full Stack Web Development',
     },
 }

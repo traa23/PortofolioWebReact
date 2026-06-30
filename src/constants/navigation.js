@@ -19,5 +19,5 @@ export const NAVBAR_HEIGHT = 72
 /** Offset applied when scrolling to a section (negative = above target). */
 export const SCROLL_OFFSET = -(NAVBAR_HEIGHT + 16)
 
-/** Resume / CV file served from /public. Replace with your real file. */
-export const RESUME_URL = '/resume.pdf'
+/** Resume / CV link (external — opens in a new tab). */
+export const RESUME_URL = 'https://canva.link/qrtzjntb3zb77vd'

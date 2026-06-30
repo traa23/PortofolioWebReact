@@ -22,8 +22,10 @@ export function ContactCTA({ email, className }) {
                 <MagneticButton>
                     <Button asChild variant="glow" size="lg" className="w-full sm:w-auto">
                         <a
-                            href={`mailto:${email}`}
-                            aria-label="Send me an email"
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Email me via Gmail"
                             data-cursor="hover"
                         >
                             <Mail className="size-4" />
@@ -34,7 +36,13 @@ export function ContactCTA({ email, className }) {
             )}
 
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <a href={RESUME_URL} download aria-label="Download my CV" data-cursor="hover">
+                <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open my CV"
+                    data-cursor="hover"
+                >
                     <Download className="size-4" />
                     Download CV
                 </a>

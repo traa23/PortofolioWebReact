@@ -1,13 +1,14 @@
 /**
- * Contact details. Structure only, no defaults.
+ * Contact details.
+ * `email` powers the "Get in touch" mailto button.
  *
  * @typedef {Object} Contact
- * @property {string} email        Used for the mailto CTA (hidden if empty).
- * @property {string} description  Short closing line under the headline.
- *
+ * @property {string} email
+ * @property {string} description
  * @type {Contact}
  */
 export const contact = {
-    email: '',
-    description: '',
+    email: 'putrafajar2366@gmail.com',
+    description:
+        'Saya terbuka untuk peluang magang, kolaborasi, maupun proyek baru. Jangan ragu untuk menghubungi saya.',
 }

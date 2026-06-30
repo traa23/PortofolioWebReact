@@ -1,15 +1,14 @@
 /**
- * Personal profile — edit these values freely.
- * Consumed by the Hero (and later About) sections.
+ * Personal profile — consumed by the Hero (and About) sections.
  *
  * @typedef {Object} Profile
  * @property {string}   greeting
- * @property {string}   name
+ * @property {string}   name         Shown large in the hero.
  * @property {string[]} roles        Rotated by the typing animation.
- * @property {string}   description  Keep it to ~2 lines.
- * @property {string}   availability Short status shown in the hero badge.
+ * @property {string}   description
+ * @property {string}   availability
  * @property {string}   location
- * @property {string}   photo        Path under /public.
+ * @property {string}   photo
  */
 
 /** @type {Profile} */
@@ -18,13 +17,12 @@ export const profile = {
     name: 'Anugrah Putra Fajar',
     roles: [
         'Frontend Developer',
-        'Full Stack Developer',
+        'Information Systems Student',
         'AI Enthusiast',
-        'Aspiring Software Engineer',
     ],
     description:
-        'Information Systems student crafting premium, performant web experiences — turning ideas into clean, scalable interfaces with React and modern web technology.',
+        'Mahasiswa Sistem Informasi dengan minat besar pada Frontend Development, UI/UX Design, dan Artificial Intelligence — terbiasa membangun aplikasi web modern yang cepat, responsif, dan mudah digunakan dengan React, Tailwind CSS, serta berbagai teknologi pendukung lainnya.',
     availability: 'Open to opportunities',
-    location: 'Indonesia',
+    location: 'Pekanbaru, Indonesia',
     photo: '/ISOPutra3D.png',
 }
